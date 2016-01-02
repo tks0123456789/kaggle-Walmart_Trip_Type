@@ -18,7 +18,7 @@
 * Ubuntu 14.04 LTS
 * xgboost-0.3
 * Cuda 6.5
-* python 2.7
+* python 2.7.6
 * numpy 1.8.2
 * scipy 0.13.3
 * pandas 0.16.0
