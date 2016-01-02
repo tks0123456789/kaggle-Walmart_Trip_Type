@@ -41,23 +41,23 @@
 
 * Parameter tuning experiments
   * Stratified 4-fold cross validation
-  1. python params_tune_xgb.py
-    * Parameter tuning experiment for xgboost
-      * XGB: The mean log_loss of XGB
-      * XGB_avg: Log_loss of Averaged XGB model predictions
+  1. Parameter tuning experiment for xgboost
+    * XGB: The mean log_loss of XGB
+    * XGB_avg: Log_loss of Averaged XGB model predictions
     * Target parameters: max_depth, num_round
+    * python params_tune_xgb.py
     * Output files: logs/r087.csv, pr_xgb087.pkl(6.4G)
 
-  2. python params_tune_nn.py
-    * Parameter tuning experiment for NN, NN_avg
-      * NN: The mean log_loss of NN
-      * NN_avg: Log_loss of Averaged NN model predictions
+  2. Parameter tuning experiment for NN, NN_avg
+    * NN: The mean log_loss of NN
+    * NN_avg: Log_loss of Averaged NN model predictions
     * Target parameters: max_epochs
+    * python params_tune_nn.py
     * Output files: logs/r096.csv, logs/r096_summary.csv, pr_nn096.pkl(1.5G)
 
-  3. python params_tune_ensemble.py
-    * Parameter tuning experiment for Ensemble
-      * NN_XGB: Log_loss of .6 * NN_avg + .4 * XGB_avg
+  3. Parameter tuning experiment for Ensemble
+    * NN_XGB: Log_loss of .6 * NN_avg + .4 * XGB_avg
     * Target parameters: max_epochs
+    * python params_tune_ensemble.py
     * Output files: logs/r104.csv, logs/exp_ens_h1_60.png, logs/exp_ens_h1_70.png
 
