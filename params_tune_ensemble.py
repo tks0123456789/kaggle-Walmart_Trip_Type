@@ -37,7 +37,7 @@ r096_summary = pd.read_csv('logs/r096_summary.csv', index_col=0, header=[0,1])
 
 # epochs:110-420
 r104 = r096_summary.iloc[10:,:]
-r104.columns = ['60', '60avg', '70', '70avg']
+r104.columns = ['60avg', '70avg', '60', '70']
 r104 = r104.join(pd.DataFrame(scores, index=range(110, 421, 10)))
 r104 = r104.reindex(columns=['60', '60avg', '60nn_xgb', '70', '70avg', '70nn_xgb'])
 r104.columns = pd.MultiIndex(levels=[[60, 70], ['NN', 'NN_avg', 'NN_XGB']],
@@ -54,9 +54,9 @@ for h1 in [60, 70]:
 print pd.DataFrame({'loss':r104.min(0), 'epochs':r104.idxmin(0)})
 #            epochs      loss
 # h1 model                   
-# 60 NN         230  0.615458
-#    NN_avg     210  0.616497
+# 60 NN         150  0.692270
+#    NN_avg     230  0.615458
 #    NN_XGB     390  0.562667
-# 70 NN         150  0.692270
-#    NN_avg     160  0.691234
+# 70 NN         160  0.691234
+#    NN_avg     210  0.616497
 #    NN_XGB     410  0.563851

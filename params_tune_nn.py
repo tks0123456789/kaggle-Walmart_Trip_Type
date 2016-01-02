@@ -97,16 +97,16 @@ r096.to_csv('logs/r096.csv')
 params = ['epochs', 'h1']
 tmp = r096[r096.nModels==nModels].groupby(params).avg.mean().unstack()
 r096_summary = tmp.join(r096.groupby(params).each.mean().unstack(), lsuffix='avg')
-r096_summary.columns = pd.MultiIndex(levels=[[60, 70], ['NN_avg', 'NN']],
+r096_summary.columns = pd.MultiIndex(levels=[['NN_avg', 'NN'], [60, 70]],
                                      labels=[[0, 0, 1, 1], [0, 1, 0, 1]],
                                      names=[u'h1', u'model'])
 
 r096_summary.to_csv('logs/r096_summary.csv')
 
 print pd.DataFrame({'loss':r096_summary.min(0), 'epochs':r096_summary.idxmin(0)})
-#            epochs      loss
-# h1 model                   
-# 60 NN_avg     230  0.615458
-#    NN         210  0.616497
-# 70 NN_avg     150  0.692270
-#    NN         160  0.691234
+#               epochs      loss
+# h1     model                  
+# NN_avg 60        230  0.615458
+#        70        210  0.616497
+# NN     60        150  0.692270
+#        70        160  0.691234
