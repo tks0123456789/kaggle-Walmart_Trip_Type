@@ -74,19 +74,23 @@ output.close()
 r087 = pd.DataFrame(scores)
 r087.to_csv('logs/r087.csv')
 
-params = ['tc', 'ntree']
+r087_summary = pd.DataFrame(index=range(300, 951, 50))
+params = ['ntree']
+for tc in [4, 5]:
+    grouped_avg = r087[(r087.nModels==nModels) & (r087.tc==tc)].groupby(params).avg
+    grouped_each = r087[r087.tc==tc].groupby(params).each
+    r087_summary = r087_summary.join(pd.DataFrame({'XGB_avg':grouped_avg.mean(),
+                                                   'XGB':grouped_each.mean()}), lsuffix='any')
 
-grouped = r087.groupby(params)
-pd.DataFrame({'avg':grouped.avg.mean().unstack().min(1),
-              'ntree':grouped.avg.mean().unstack().idxmin(1)})
-#         avg  ntree
-# tc                
-# 4   0.64834    750
-# 5   0.64744*   550
+r087_summary.columns = pd.MultiIndex(levels=[[4, 5], ['XGB', 'XGB_avg']],
+                                     labels=[[0, 0, 1, 1], [0, 1, 0, 1]],
+                                     names=[u'max_depth', u'model'])
+r087_summary.to_csv('logs/r087_summary.csv')
+print pd.DataFrame({'loss':r087_summary.min(0), 'ntree':r087_summary.idxmin(0)})
 
-pd.DataFrame({'each':grouped.each.mean().unstack().min(1),
-              'ntree':grouped.each.mean().unstack().idxmin(1)})
-#        each  ntree
-# tc                
-# 4   0.66263    700
-# 5   0.66407    550
+#                        loss  ntree
+# max_depth model                   
+# 4         XGB      0.662632    700
+#           XGB_avg  0.644430    750
+# 5         XGB      0.664067    550
+#           XGB_avg  0.643234    550
