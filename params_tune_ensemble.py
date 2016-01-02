@@ -1,7 +1,7 @@
 """
 Target parameters: max_epochs
-.3*(NN([6k+, 60, 100, 38])_avg + NN([6k+, 70, 90, 38]))_avg +
-  .4*XGB(max_depth:5, num_round550)_avg
+.3*(NN([6k+, 60, 100, 38])_avg + NN([6k+, 70, 90, 38])_avg +
+  .4*XGB(max_depth:5, num_round:550)_avg
 """
 
 import pandas as pd
