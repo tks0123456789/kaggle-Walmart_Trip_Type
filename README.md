@@ -1,4 +1,3 @@
-## kaggle-Walmart_Trip_Type
 ## 15th solution for the Walmart Recruiting: Trip Type Classification
 
 ### Classifier algorithms 
@@ -30,21 +29,22 @@
 ### Usage
 * Change data_path in utility_common.py to your data location
 * Submission
-  1. python xgb.py
+  * python xgb.py
     * Output files: pr002_xgb_test.npy, pr002_xgb_train.npy
-  2. python nn.py
+  * python nn.py
     * Output files: pr_nn002_h1_60.npy, pr_nn002_h1_70.npy
-  3. python make_submission.py
+  * python make_submission.py
     * Output file: pred002.csv
+  * Public: 0.52832, Private: 0.52625
 * Parameter tuning expriments
   1. python params_tune_xgb.py
     * Parameter tuning expriment for xgboost
     * Target parameters: max_depth, num_round
     * Output files: logs/r087.csv, pr_xgb087.pkl(6.4G)
-  2. python params_tune_nn.py, pr_nn096.pkl(1.5G)
+  2. python params_tune_nn.py
     * Parameter tuning expriment for NN
     * Target parameters: max_epochs
-    * Output files: logs/r096.csv, logs/r096_summary.csv
+    * Output files: logs/r096.csv, logs/r096_summary.csv, pr_nn096.pkl(1.5G)
   3. python params_tune_ensemble.py
     * Parameter tuning expriment for Ensemble
     * Target parameters: max_epochs
