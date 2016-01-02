@@ -9,8 +9,6 @@ import cPickle as pickle
 from utility_common import data_path, file_train
 from sklearn.metrics import log_loss
 
-pd.set_option('display.precision', 4)
-
 nModels = 20
 
 training = pd.read_csv(file_train)
