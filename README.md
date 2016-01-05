@@ -30,14 +30,16 @@
 ### Usage
 * Change data_path in utility_common.py to your data location
 
-* Submission
+* Submission (command, output file(s), scores(Public, Private))
   * python xgb.py
-    * Output files: pr002_xgb_test.npy, pr002_xgb_train.npy
+    * pr002_xgb_test.npy, pr002_xgb_train.npy
+    * [0.61108, 0.60271]
   * python nn.py
-    * Output files: pr_nn002_h1_60.npy, pr_nn002_h1_70.npy
+    * pr_nn002_h1_60.npy, pr_nn002_h1_70.npy
+    * [0.58743, 0.58468], [0.59361, 0.59228]
   * python make_submission.py
-    * Output file: pred002.csv
-  * Public: 0.52832, Private: 0.52625
+    * pred002.csv
+    * [0.52832, 0.52625]
 
 * Parameter tuning experiments[Stratified 4-fold cross validation]
   1. XGB, XGB_avg
