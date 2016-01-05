@@ -1,3 +1,10 @@
+"""
+Feature selection by xgb + NN(2 hidden layers), useUpc:False
+Averaged 50 models each
+Parameter tuning: params_tune_ensemble.py
+Time: 21h
+The running time on Ubuntu 14.04 LTS[i7 4790k, 32G MEM, GTX660]
+"""
 import numpy as np
 import scipy as sp
 import pandas as pd
