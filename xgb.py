@@ -1,5 +1,5 @@
 """
-XGB, useUpc:False, Averagd 50 models
+XGB, useUpc:True
 Averaged 50 models each
 Parameter tuning: params_tune_xgb.py
 Time: 7h22m
