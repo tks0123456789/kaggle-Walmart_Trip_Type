@@ -116,5 +116,5 @@ def feature_extraction(training=None, test=None, useUpc=False):
                                 row='VisitNumber',
                                 col='Upc',
                                 val='ScanCount_log1p')
-        X = sp.sparse.hstack((X, X_upc))
+        X = sp.sparse.hstack((X, X_upc)).tocsr()
     return X, target, v_train, v_test
